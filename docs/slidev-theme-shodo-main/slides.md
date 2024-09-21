@@ -7,7 +7,7 @@ layout: cover
 
 <div class="subtitle">Shodo</div>
 
-# Foundations of algorithms with Go
+# Go basics for algorithmic foundations
 
 ---
 
