@@ -12,21 +12,23 @@
     "slidev": ">=0.19.3"
   },
   "scripts": {
-    "build": "slidev build course.md",
-    "dev": "slidev course.md --open",
-    "export": "slidev export course.md",
-    "screenshot": "slidev export course.md --dark --format png --timeout 60000",
-    "pdf": "slidev export course.md --format pdf --timeout 60000",
+    "build": "slidev build slides.md",
+    "dev": "slidev slides.md",
+    "export": "slidev export slides.md",
+    "screenshot": "slidev export slides.md --dark --format png --timeout 60000",
+    "pdf": "slidev export slides.md --format pdf --timeout 60000",
     "lint": "stylelint '**/*.css'",
     "format": "stylelint '**/*.css' --fix && prettier . --write"
   },
   "dependencies": {
+    "@slidev/theme-default": "^0.25.0",
+    "@slidev/theme-seriph": "^0.25.0",
     "@slidev/types": "^0.49.11",
     "codemirror-theme-vars": "^0.1.2",
     "prism-theme-vars": "^0.2.5"
   },
   "devDependencies": {
-    "@slidev/cli": "^0.49.11",
+    "@slidev/cli": "^0.49.29",
     "playwright-chromium": "^1.44.1",
     "prettier": "^3.3.2",
     "stylelint": "^16.6.1",
