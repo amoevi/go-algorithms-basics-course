@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "slidev build slides.md",
-    "dev": "slidev slides.md",
+    "dev": "slidev slides.md --open",
     "export": "slidev export slides.md",
     "screenshot": "slidev export slides.md --dark --format png --timeout 60000",
     "pdf": "slidev export slides.md --format pdf --timeout 60000",

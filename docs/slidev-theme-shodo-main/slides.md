@@ -235,8 +235,8 @@ NOT false IS true
 -------------------------------------------
 256 times 128 IS TODO
 28.0 divided by 7.0 IS TODO
-28 divided by 17 IS TODO
-28 mod 17 IS TODO
+28 divided by 16 IS TODO
+28 mod 16 IS TODO
 "basics" plus "." plus "go" IS TODO
 ...
 ```
@@ -373,11 +373,13 @@ layout: full
 - `else if` is used to test multiple conditions in sequence.
 - `else` keyword provides an alternative block of code if the conditions are false.
 
-```go {all|1-2|3-4|5-7|9-11|all}
+```go {all|1-2|3-6|7-9|11-13|all}
 if (28 % 2) == 0 {
 	fmt.Println("28 is an even number")
 } else if (28 > 3) && (28-3 >= 0) {
 	fmt.Println("28 is really greater than 3")
+} else if 3 == 3 {
+	fmt.Println("Three is the magic number")
 } else {
 	fmt.Println("Well, I guess none of the above is true")
 }
@@ -633,7 +635,7 @@ layout: full
 ```
 #  Declaring and calling a function
 
-```go
+```go {all|1-4|6-8|all}
 // Declare a function with parameters and a return type.
 func add(a int, b int) int {
 	return a + b
@@ -651,7 +653,7 @@ layout: full
 ```
 #  Return zero or more values
 
-```go
+```go {all|1-5|7-12|14-19|all}
 // Functions can perform tasks without returning anything.
 func sayHi() {
 	fmt.Println("Hello, World!")

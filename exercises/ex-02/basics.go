@@ -13,8 +13,8 @@ func main() {
 
 	fmt.Println("256 times 128 IS", "TODO")
 	fmt.Println("28.0 divided by 7.0 IS", "TODO")
-	fmt.Println("28 divided by 17 IS", "TODO")
-	fmt.Println("28 mod 17 IS", "TODO")
+	fmt.Println("28 divided by 16 IS", "TODO")
+	fmt.Println("28 mod 16 IS", "TODO")
 	fmt.Println("\"basics\" plus \".\" plus \"go\" IS", "TODO")
 
 	fmt.Println("-------------------------------------------")
@@ -30,6 +30,6 @@ func main() {
 	fmt.Println("-1 greater than -4 IS", "TODO")
 	fmt.Println("54 mod 18 equal to 0 IS", "TODO")
 	fmt.Println("2 times 8 equal to 32 minus 16 IS", "TODO")
-	fmt.Println("28 mod 17 less than 17 IS", "TODO")
+	fmt.Println("28 mod 16 less than 16 IS", "TODO")
 	fmt.Println("false or not false IS", "TODO")
 }
