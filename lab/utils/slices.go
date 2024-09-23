@@ -1,4 +1,4 @@
-package main
+package utils
 
 // TODO
 // Create the function generateSequentialSlice that takes an integer n

@@ -1,4 +1,4 @@
-package main
+package utils
 
 // TODO
 // Create the function linearSearch that takes a slice of integers and a target value

@@ -637,6 +637,15 @@ layout: section
 index: 5
 ```
 
+## Maps
+
+---
+
+```yaml
+layout: section
+index: 6
+```
+
 ## Functions
 ---
 
@@ -729,4 +738,121 @@ $ cd ex-05
 $ go run functions.go
 
 $
+```
+
+---
+
+```yaml
+layout: section
+index: 7
+```
+
+## Packages
+
+---
+
+```yaml
+layout: full
+```
+# Packages
+
+- Packages are a way to organize code in Go.
+- Packages allow code reuse across multiple files.
+- Each file belongs to a package.
+- The `main` package is where execution starts, and the `main()` function must be present.
+
+```go {all|1|all}
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("hello, world")
+}
+```
+
+---
+
+```yaml
+layout: full
+```
+# `import` statement
+
+- `import` is used to include code from another package.
+- You can import multiple packages by using parentheses.
+
+```go {all|3-7|all}
+package main
+
+import (
+	"fmt"
+	"math"
+	"time"
+)
+
+func main() {
+	fmt.Println("The square root of 25 is:", math.Sqrt(25))
+	fmt.Println("Current time is:", time.Now())
+}
+```
+
+---
+
+```yaml
+layout: full
+```
+# Use imported packages
+
+- Names starting with an uppercase letter are exported and can be accessed from other packages.
+- Exported functions and variables are accessible after importing the package.
+- Names starting with a lowercase letter are unexported and can only be used within the same package.
+- Unexported functions and variables remain private to the package.
+
+```go {all|3-7|all}
+package main
+
+import (
+	"fmt"
+	"math"
+	"time"
+)
+
+func main() {
+	fmt.Println("The square root of 25 is:", math.Sqrt(25))
+	fmt.Println("Current time is:", time.Now())
+}
+```
+
+---
+
+```yaml
+layout: section
+index: 7
+```
+
+## Standard library
+
+---
+
+```yaml
+layout: full
+```
+# `import` statement
+
+- `import` is used to include code from another package.
+- You can import multiple packages by using parentheses.
+
+```go {all|3-7|all}
+package main
+
+import (
+	"fmt"
+	"math"
+	"time"
+)
+
+func main() {
+	fmt.Println("The square root of 25 is:", math.Sqrt(25))
+	fmt.Println("Current time is:", time.Now())
+}
 ```
