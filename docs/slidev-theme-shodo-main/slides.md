@@ -477,6 +477,36 @@ for {
 layout: full
 ```
 
+# `range` statements
+- `range` iterates over elements of a collection.
+- It returns the index and the value itself.
+- Use `_` to discard unused values.
+
+```go {all|1-4|6-11|13-16|all}
+floating := []float64{ 3.14159, 2.71828, 1.61803 }
+for index, value := range floating {
+	fmt.Println(index, value)
+}
+
+for _, char := range "Hello World" {
+	if char == ' ' {
+		fmt.Println("Found a space!")
+		break
+	}
+}
+
+// Range over integers since Go 1.22 (February 2024)
+for number := range 10 {
+	fmt.Println(number)
+}
+```
+
+---
+
+```yaml
+layout: full
+```
+
 # 📝 Exercise : work with control structures
 
 - Navigate to the `ex-04` folder and edit the `statements.go` file.
