@@ -485,7 +485,7 @@ layout: full
 ```go {all|1-4|6-11|13-16|all}
 floating := []float64{ 3.14159, 2.71828, 1.61803 }
 for index, value := range floating {
-	fmt.Println(index, value)
+	fmt.Println("This is the element", index, "in my slice:", value)
 }
 
 for _, char := range "Hello World" {
@@ -588,7 +588,7 @@ layout: full
 ```
 # Common slices operations
 
-```go {all|3-4|6-8|9-12|all}
+```go {all|3-4|6-8|9-17|all}
 sli := []float64{ 3.14159, 2.71828, 1.61803 }
 
 // len() returns the number of elements in the slice
@@ -597,9 +597,14 @@ fmt.Println(len(sli))
 // append() add elements to a slice
 sli = append(sli, 1.41421)
 
-// for statement to iterate over a slice
+// for statements to iterate over a slice
 for i := 0; i < len(sli); i++ {
-	fmt.Println("This is the element", i, "in my slice:", sli[i])
+	value := sli[i]
+	fmt.Println("This is the element", i, "in my slice:", value)
+}
+
+for i, value := range sli {
+	fmt.Println("This is the element", i, "in my slice:", value)
 }
 ```
 
@@ -618,6 +623,7 @@ layout: full
 $ cd exercises
 $ cd ex-05
 $ go run slices.go
+false
 false
 false
 false
