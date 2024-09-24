@@ -642,6 +642,85 @@ index: 5
 ---
 
 ```yaml
+layout: full
+```
+
+# Maps
+- Maps store data in key-value pairs.
+- Each key in a map must be unique.
+- Values are accessed by using the key.
+
+```go {all|1-2|4-5|7-9|11-13|all}
+// Declare a map with initial values
+m := map[string]int{"foo": 1, "bar": 2}
+
+// Create an empty map
+n := make(map[string]int)
+
+// Add elements in the maps
+n["k1"] = 7
+n["k2"] = 13
+
+// Update an element
+// The previous value of "k1" (7) is overwritten with 9
+n["k1"] = 9
+```
+
+---
+
+```yaml
+layout: full
+```
+
+# Common maps operations
+
+```go {all|3-8|10-11|13-15|17-20|all}
+m := map[string]float64{"pi": 3.14159, "phi": 1.61803, "ln10":  2.30258}
+
+// Access an element
+v1 := m["ln10"]
+v2, exists := m["sqrt2"]
+if (exists) {
+	fmt.Println("sqrt2 is", v2)
+}    
+
+// Delete an element
+delete(m, "phi")
+
+// Delete ALL elements
+clear(m)
+
+// Get the length of the map
+length := len(m)
+
+// Iterate over the map
+for key, value := range m {
+    fmt.Println(key, ":", value)
+}
+```
+
+---
+
+```yaml
+layout: full
+```
+
+# 📝 Exercise : count with maps
+
+- Navigate to the `ex-06` folder and edit the `maps.go` file.
+- Replace `TODO` with the proper function implementation.
+
+```console
+$ cd exercises
+$ cd ex-06
+$ go run maps.go
+The most frequent digit is 0 with 0 occurrences
+$
+```
+
+---
+
+```yaml
 layout: section
 index: 6
 ```
@@ -729,12 +808,12 @@ layout: full
 
 # 📝 Exercise : declare and call functions
 
-- Navigate to the `ex-06` folder and edit the `functions.go` file.
+- Navigate to the `ex-07` folder and edit the `functions.go` file.
 - Replace `TODO` with the proper function implementation.
 
 ```console
 $ cd exercises
-$ cd ex-05
+$ cd ex-07
 $ go run functions.go
 
 $

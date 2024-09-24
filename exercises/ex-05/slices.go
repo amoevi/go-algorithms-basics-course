@@ -6,6 +6,7 @@ func slicesEqual(a, b []int) bool {
 	var areSlicesEqual bool
 
 	// TODO
+	// areSlicesEqual should be true if slices are equal, false otherwise
 
 	return areSlicesEqual
 }
