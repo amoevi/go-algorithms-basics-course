@@ -680,7 +680,7 @@ m := map[string]float64{"pi": 3.14159, "phi": 1.61803, "ln10":  2.30258}
 // Access an element
 v1 := m["ln10"]
 v2, exists := m["sqrt2"]
-if (exists) {
+if exists {
 	fmt.Println("sqrt2 is", v2)
 }    
 
@@ -878,27 +878,45 @@ func main() {
 ---
 
 ```yaml
-layout: full
+layout: two-cols-header
 ```
-# Use imported packages
+<!-- ### Use imported packages -->
 
-- Names starting with an uppercase letter are exported and can be accessed from other packages.
-- Exported functions and variables are accessible after importing the package.
-- Names starting with a lowercase letter are unexported and can only be used within the same package.
-- Unexported functions and variables remain private to the package.
+- Uppercase names are exported and accessible across packages.
+- Lowercase keeps names private to the package.
 
-```go {all|3-7|all}
+::left::
+
+```go
+// mathutils.go
+package mathutils
+
+func Add(a, b int) int {
+	return a + b
+}
+
+func subtract(a, b int) int {
+	return a - b
+}
+```
+
+::right::
+
+```go
+// main.go
 package main
 
 import (
 	"fmt"
-	"math"
-	"time"
+	"path/to/your/project/mathutils"
 )
 
 func main() {
-	fmt.Println("The square root of 25 is:", math.Sqrt(25))
-	fmt.Println("Current time is:", time.Now())
+	sum := mathutils.Add(3, 5)
+	fmt.Println("Sum:", sum)
+
+	// Will cause a compilation error
+	// difference := mathutils.subtract(5, 3)
 }
 ```
 
