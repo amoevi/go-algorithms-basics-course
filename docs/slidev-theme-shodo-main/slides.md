@@ -58,6 +58,20 @@ Control flows and algorithms.
 ---
 
 ```yaml
+layout: default
+```
+
+# Slides
+
+https://amoevi.github.io/go-algorithms-basics-course
+
+# Source code
+
+https://github.com/amoevi/go-algorithms-basics-course
+
+---
+
+```yaml
 layout: section
 index: 1
 ```
@@ -113,6 +127,33 @@ $
 
 🚨 Go is not installed? Download Go from the official website and follow installation instructions : https://go.dev/doc/install
 
+---
+
+```yaml
+layout: full
+```
+
+# 📝 Exercise : download the source code
+
+- Clone the repository to download the project source.
+- Navigate to the project folder.
+- Check the project structure by listing its contents.
+
+```console
+$ git clone https://github.com/amoevi/go-algorithms-basics-course.git
+Cloning into 'go-algorithms-basics-course'...
+remote: Enumerating objects: 288, done.
+remote: Counting objects: 100% (288/288), done.
+remote: Compressing objects: 100% (206/206), done.
+remote: Total 288 (delta 68), reused 270 (delta 53), pack-reused 0 (from 0)
+Receiving objects: 100% (288/288), done.
+$ cd go-algorithms-basics-course
+$ ls
+docs  exercises  lab  README.md
+$
+```
+
+🚨 Git is not installed? Download the project as a ZIP file from GitHub : https://github.com/amoevi/go-algorithms-basics-course
 
 ---
 
@@ -141,7 +182,22 @@ $ ./hello-world
 hello, world
 ```
 
-- When in doubt, use `go help`.
+---
+
+```yaml
+layout: full
+```
+
+# Go documentation and resources
+
+|                                        |                                                                                                        |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| https://go.dev/doc                     | The official documentation for Go.                                                                     |
+| https://go.dev/tour                    | An interactive tour that introduces the basics.                                                        |
+| https://go.dev/doc/effective_go        | A guide on best practices and idiomatic ways to write Go code.                                         |
+| https://go.dev/play                    | An online tool to write, run, and share Go code.                                                       |
+| https://go.dev/ref/spec                | The official specification for the language.                                                           |
+
 
 ---
 
