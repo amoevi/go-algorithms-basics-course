@@ -733,7 +733,7 @@ layout: full
 ```
 # Functions
 - A function can take zero or more arguments.
-- A function can return zero or more values. 
+- A function can `return` zero or more values. 
 
 ```go {all|1-3|5-7|9-11|13-15|all}
 func zeroArgumentsZeroValues() {
@@ -934,22 +934,108 @@ index: 7
 ```yaml
 layout: full
 ```
-# `import` statement
+# `fmt`
 
-- `import` is used to include code from another package.
-- You can import multiple packages by using parentheses.
+- `fmt` package provides formatted I/O operations.
 
-```go {all|3-7|all}
-package main
+```go {all}
+// Prints using the default format to the standard output.
+fmt.Print("hello, world")
 
-import (
-	"fmt"
-	"math"
-	"time"
-)
+// Prints using the default format and adds a new line.
+fmt.Println("hello, world")
 
-func main() {
-	fmt.Println("The square root of 25 is:", math.Sqrt(25))
-	fmt.Println("Current time is:", time.Now())
+// Prints custom formatted output.
+cost, currency := 9.99, "EUR"
+fmt.Printf("This costs %.2f %s.", cost, currency)
+
+// Stores output in a string.
+n := 22.0 / 7.0
+message1 := fmt.Sprint("22.0 / 7.0 =", n, ".")
+message2 := fmt.Sprintln("22.0 / 7.0 =", n, ".")
+message3 := fmt.Sprintf("22.0 / 7.0 = %.2f.", n)
+
+// Reads formatted input using Scanf.
+var year int
+fmt.Print("Enter the year: ")
+fmt.Scanf("%d", &year)
+fmt.Printf("We are in the year %d!\n", year)
+```
+
+---
+
+```yaml
+layout: full
+```
+# `math`
+
+- `math` package provides basic constants and mathematical functions.
+
+```go
+// Constants
+fmt.Println(math.E, math.Phi, math.Ln10)
+fmt.Println(math.MinInt, math.MaxInt)
+
+// Functions
+n := 22.0
+fmt.Println(math.Abs(n), math.Cos(n), math.Exp(n), math.IsNaN(n), math.Round(n), math.Sqrt(n))
+
+m := 7.0
+fmt.Println(math.Max(n, m), math.Min(n, m), math.Mod(n, m), math.Pow(n, m))
+```
+---
+
+```yaml
+layout: full
+```
+# `strings`
+
+- `strings` package provides functions to manipulate strings.
+
+```go
+strings.ToUpper("hello") // "HELLO"
+strings.ToLower("GOODBYE") // goodbye
+
+strings.Contains("golang", "go") // true
+strings.ContainsRune("golang", 'g') // true
+
+strings.Index("golang", "lan") // 2
+strings.Index("golang", "py") // -1
+
+strings.Split("apple,banana,cherry", ",") // [apple banana cherry]
+strings.Join([]string{"one", "two", "three"}, "-") // one-two-three
+```
+
+---
+
+```yaml
+layout: full
+```
+# `os`
+
+- `os` package provides functions to interact with the operating system.
+
+```go
+// Reads a file
+data, err := os.ReadFile("example.txt")
+if err != nil {
+	fmt.Println("Error while reading file", err)
+} else {
+	fmt.Println(string(data))
 }
+
+// Writes to a file
+err = os.WriteFile("output.txt", []byte("Hello, World!"), 0644)
+if err != nil {
+    fmt.Println("Error while writing file", err)
+}
+
+// Gets an environment variable
+home := os.Getenv("HOME")
+fmt.Println("Home directory:", home)
+
+// Gets command-line arguments
+// go run main.go 123 abc hello
+args := os.Args
+fmt.Println("Program arguments:", args)
 ```
