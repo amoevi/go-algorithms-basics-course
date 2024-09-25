@@ -122,29 +122,26 @@ layout: full
 
 # Go commands
 
-- `go run` will be our primary command for running Go programs.
-- When in doubt, use `go help`
-
-```console {all|1|13|all}
-$ go help
-Go is a tool for managing Go source code.
-
-Usage:
-
-        go <command> [arguments]
-
-The commands are:
-
-        build       compile packages and dependencies
-        doc         show documentation for package or symbol
-        fmt         gofmt (reformat) package sources
-        run         compile and run Go program
-        test        test packages
-        version     print Go version
-
-Use "go help <command>" for more information about a command.
+- `go run` compiles Go code on the fly and immediately runs it.
+```console
+$ ls
+hello-world.go
+$ go run hello-world.go
+hello, world
 ```
 
+- `go build` compiles source code into an executable file.
+```console
+$ ls
+hello-world.go
+$ go build hello-world.go
+$ ls
+hello-world.go hello-world
+$ ./hello-world
+hello, world
+```
+
+- When in doubt, use `go help`.
 
 ---
 
@@ -622,6 +619,10 @@ fmt.Println(len(sli))
 
 // append() add elements to a slice
 sli = append(sli, 1.41421)
+
+// copy() copies elements from one slice to another
+dst := make([]string, len(sli))
+copy(dst, sli)
 
 // for statements to iterate over a slice
 for i := 0; i < len(sli); i++ {
