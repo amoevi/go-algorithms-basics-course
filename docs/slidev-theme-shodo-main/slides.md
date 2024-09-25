@@ -586,6 +586,32 @@ sli[2], sli[3] = sli[3], sli[2]
 ```yaml
 layout: full
 ```
+# Slicing slices
+
+- Slicing creates a new slice from an existing one.
+- `slice[start:end]` returns a sub-slice from start (inclusive) to end (exclusive).
+- Modifying a sub-slice may also modify the original slice.
+
+```go
+sli := []string{"perl", "golang", "python", "java", "c++"}
+
+sli1 := sli[1:3] // ["golang", "python"]
+sli2 := sli[2:] // ["python", "java", "c++"]
+sli3 := sli[:3] // ["perl", "golang", "python"]
+
+sli2[0] = "ruby"
+
+fmt.Println(sli2) // ["ruby", "java", "c++"]
+fmt.Println(sli) // ["perl", "golang", "ruby", "java", "c++"]
+fmt.Println(sli3) // ["perl", "golang", "ruby"]
+
+```
+
+---
+
+```yaml
+layout: full
+```
 # Common slices operations
 
 ```go {all|3-4|6-8|9-17|all}
@@ -674,7 +700,7 @@ layout: full
 
 # Common maps operations
 
-```go {all|3-8|10-11|13-15|17-20|all}
+```go {all|3-8|10-11|13-14|16-17|19-22|all}
 m := map[string]float64{"pi": 3.14159, "phi": 1.61803, "ln10":  2.30258}
 
 // Access an element
@@ -805,6 +831,29 @@ fmt.Println("Quotient:", quotient, "Remainder:", remainder)
 ```yaml
 layout: full
 ```
+#  Recursion
+- Base case prevents infinite recursion.
+- Recursive case calls the function with a smaller argument, breaking the problem down.
+- Recursion is useful for divide and conquer algorithms.
+
+```go {all|2-5|6-7|all}
+func factorial(n int) int {
+    // Base case: when n is 0 or 1
+    if n == 0 || n == 1 {
+        return 1
+    }
+    // Recursive case: n * factorial(n-1)
+    return n * factorial(n-1)
+}
+
+fmt.Println(factorial(5))
+```
+
+---
+
+```yaml
+layout: full
+```
 
 # 📝 Exercise : declare and call functions
 
@@ -880,7 +929,6 @@ func main() {
 ```yaml
 layout: two-cols-header
 ```
-<!-- ### Use imported packages -->
 
 - Uppercase names are exported and accessible across packages.
 - Lowercase keeps names private to the package.
@@ -938,7 +986,7 @@ layout: full
 
 - `fmt` package provides formatted I/O operations.
 
-```go {all}
+```go {all|1-9|11-15|17-21|all}
 // Prints using the default format to the standard output.
 fmt.Print("hello, world")
 
