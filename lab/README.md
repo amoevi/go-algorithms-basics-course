@@ -3,6 +3,10 @@
 <h2 align="center">Go algorithms practice lab</h2>
 </div>
 
-### Running the Application
+### Running the application
 
-To launch the program, use `go run *.go`. This command will execute the `main.go` file and automatically incorporate code from other `.go` files in the directory.
+To launch the program, use `go run main.go`.
+
+### Testing your functions
+
+To launch the tests, use `go test`.
