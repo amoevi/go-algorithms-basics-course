@@ -645,7 +645,7 @@ layout: full
 - `slice[start:end]` returns a sub-slice from start (inclusive) to end (exclusive).
 - Modifying a sub-slice may also modify the original slice.
 
-```go
+```go {all|3-5|7-11|all}
 sli := []string{"perl", "golang", "python", "java", "c++"}
 
 sli1 := sli[1:3] // ["golang", "python"]
@@ -667,7 +667,7 @@ layout: full
 ```
 # Common slices operations
 
-```go {all|3-4|6-8|9-17|all}
+```go {all|3-4|6-8|9-11|13-21|all}
 sli := []float64{ 3.14159, 2.71828, 1.61803 }
 
 // len() returns the number of elements in the slice
