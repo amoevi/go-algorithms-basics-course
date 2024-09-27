@@ -1130,7 +1130,7 @@ if err != nil {
 }
 
 // Writes to a file
-err = os.WriteFile("output.txt", []byte("Hello, World!"), 0644)
+err := os.WriteFile("output.txt", []byte("hello, world"), 0644)
 if err != nil {
     fmt.Println("Error while writing file", err)
 }
@@ -1144,3 +1144,17 @@ fmt.Println("Home directory:", home)
 args := os.Args
 fmt.Println("Program arguments:", args)
 ```
+---
+
+```yaml
+layout: full
+```
+# ...and many more!
+
+|                    |                      |                    |
+| ------------------ | -------------------- | ------------------ |
+| `bytes`            | `cmp`                | `crypto/sha512`    |
+| `encoding/json`    | `errors`             | `flag`             |
+| `html/template`    | `image/png`          | `log/slog`         |
+| `net/http`         | `path/filepath`      | `regexp`           |
+| `slices`           | `strconv`            | `time`             |
