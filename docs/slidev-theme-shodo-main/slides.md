@@ -1158,3 +1158,12 @@ layout: full
 | `html/template`    | `image/png`          | `log/slog`         |
 | `net/http`         | `path/filepath`      | `regexp`           |
 | `slices`           | `strconv`            | `time`             |
+
+---
+
+```yaml
+layout: section
+index: 7
+```
+
+## Algorithms

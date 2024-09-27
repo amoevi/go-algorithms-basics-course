@@ -34,25 +34,31 @@ func BubbleSort(arr []int) {
 }
 
 func MergeSort(arr []int) {
-	if len(arr) > 1 {
-		mid := len(arr) / 2
-
-		left := make([]int, mid)
-		right := make([]int, len(arr)-mid)
-
-		copy(left, arr[:mid])
-		copy(right, arr[mid:])
-
-		MergeSort(left)
-		MergeSort(right)
-
-		merge(arr, left, right)
+	// Base case: if the array has 1 or 0 elements, it's already sorted
+	if len(arr) <= 1 {
+		return
 	}
+
+	// Find the middle of the array
+	mid := len(arr) / 2
+
+	// Split the array into two halves
+	left := arr[:mid]
+	right := arr[mid:]
+
+	// Recursively apply MergeSort to both halves
+	MergeSort(left)
+	MergeSort(right)
+
+	// Merge the two sorted halves
+	merge(arr, left, right)
 }
 
+// merge: merges two sorted subarrays into the original array
 func merge(arr, left, right []int) {
 	i, j, k := 0, 0, 0
 
+	// Compare elements from both subarrays and insert into the main array
 	for i < len(left) && j < len(right) {
 		if left[i] < right[j] {
 			arr[k] = left[i]
@@ -64,12 +70,14 @@ func merge(arr, left, right []int) {
 		k++
 	}
 
+	// Add remaining elements from left, if any
 	for i < len(left) {
 		arr[k] = left[i]
 		i++
 		k++
 	}
 
+	// Add remaining elements from right, if any
 	for j < len(right) {
 		arr[k] = right[j]
 		j++
