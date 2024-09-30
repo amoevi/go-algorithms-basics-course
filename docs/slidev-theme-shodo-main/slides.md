@@ -1167,3 +1167,59 @@ index: 7
 ```
 
 ## Algorithms
+
+---
+
+```yaml
+layout: full
+```
+
+# Project structure
+
+- `lab` directory is the workspace where all activities take place.
+	- `main.go` serves as a playground for running and testing the algorithms implemented.
+	- `go.mod` is required to enable importing the `lab/utils` local package.
+	- `utils` directory contains various algorithms to implement.
+	- `solutions` folder provides the solutions, available for review after attempting the exercises.
+
+```console
+$ cd lab
+$ go run main.go
+[]
+$
+```
+
+---
+
+```yaml
+layout: full
+```
+
+# 📝 Exercise : create slices
+
+- Navigate to the `utils` folder and edit the `slices.go` file.
+- Implement the method `GenerateSequentialSlice`.
+- Implement the method `GenerateIdenticalSlice`.
+- Implement the method `GenerateRandomSlice`.
+
+---
+
+```yaml
+layout: full
+```
+
+# 📝 Exercise : verify if a slice is sorted
+
+- Navigate to the `utils` folder and edit the `sorts.go` file.
+- Implement the method `IsSorted`.
+
+---
+
+```yaml
+layout: full
+```
+
+# 📝 Exercise : sort a slice using selection sort
+
+- Navigate to the `utils` folder and edit the `sorts.go` file.
+- Implement the method `SelectionSort`.
