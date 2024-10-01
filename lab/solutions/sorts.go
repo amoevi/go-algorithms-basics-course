@@ -43,8 +43,11 @@ func MergeSort(arr []int) {
 	mid := len(arr) / 2
 
 	// Split the array into two halves
-	left := arr[:mid]
-	right := arr[mid:]
+	left := make([]int, mid)
+	right := make([]int, len(arr)-mid)
+
+	copy(left, arr[:mid])
+	copy(right, arr[mid:])
 
 	// Recursively apply MergeSort to both halves
 	MergeSort(left)

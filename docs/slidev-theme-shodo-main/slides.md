@@ -1259,7 +1259,9 @@ layout: full
 
 - The algorithm repeatedly selects the smallest element from the unsorted portion of the list.
 - After selecting the smallest element, it swaps it with the first element of the unsorted portion.
-- This process is repeated, each time moving the boundary between the sorted and unsorted portions of the list.
+- This process is repeated, each time moving the boundary between the sorted and unsorted portions.
+
+<Youtube id="92BfuxHn2XE" width="592px" height="333px" />
 
 ---
 
@@ -1284,6 +1286,8 @@ layout: full
 - The algorithm repeatedly compares adjacent elements.
 - If two adjacent elements are in the wrong order, they are swapped.
 
+<Youtube id="Cq7SMsQBEUw" width="592px" height="333px" />
+
 ---
 
 ```yaml
@@ -1294,6 +1298,31 @@ layout: full
 
 - Navigate to the `utils` folder and edit the `sorts.go` file.
 - Implement the method `BubbleSort`.
+
+---
+
+```yaml
+layout: full
+```
+
+# Merge sort
+
+- This is a divide-and-conquer sorting algorithm.
+- It recursively divides the array into two halves.
+- Each subarray is then merged back together in sorted order.
+
+<Youtube id="ZRPoEKHXTJg" width="592px" height="333px" />
+
+---
+
+```yaml
+layout: full
+```
+
+# 📝 Exercise : sort a slice using merge sort
+
+- Navigate to the `utils` folder and edit the `sorts.go` file.
+- Implement the method `MergeSort`.
 
 ---
 
