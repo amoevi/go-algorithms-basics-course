@@ -639,11 +639,14 @@ layout: full
 
 # Accessing and modifying slices
 
-```go {all|3-4|6-8|10-11|all}
+```go {all|3-4|6-7|9-11|13-14|all}
 sli := []string{"perl", "go", "java", "python", "c"}
 
 // Access an element
 lang := sli[0]
+
+// Accessing an out-of-bounds index will cause a runtime error
+// oops := sli[5]
 
 // Edit an element
 sli[1] = "golang"
