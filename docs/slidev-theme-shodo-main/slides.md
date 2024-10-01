@@ -1109,6 +1109,9 @@ strings.Index("golang", "py") // -1
 
 strings.Split("apple,banana,cherry", ",") // [apple banana cherry]
 strings.Join([]string{"one", "two", "three"}, "-") // one-two-three
+
+strings.TrimSpace("  hello  ") // "hello"
+strings.Trim("...hello...", ".") // "hello"
 ```
 
 ---
@@ -1153,7 +1156,7 @@ layout: full
 
 |                    |                      |                    |
 | ------------------ | -------------------- | ------------------ |
-| `bytes`            | `cmp`                | `crypto/sha512`    |
+| `bytes`            | `bufio`              | `cmp`              |
 | `encoding/json`    | `errors`             | `flag`             |
 | `html/template`    | `image/png`          | `log/slog`         |
 | `net/http`         | `path/filepath`      | `regexp`           |
@@ -1163,7 +1166,7 @@ layout: full
 
 ```yaml
 layout: section
-index: 7
+index: 8
 ```
 
 ## Algorithms
@@ -1199,8 +1202,30 @@ layout: full
 
 - Navigate to the `utils` folder and edit the `slices.go` file.
 - Implement the method `GenerateSequentialSlice`.
+```go
+generated := utils.GenerateSequentialSlice(5)
+fmt.Println(generated) // [0 1 2 3 4]
+```
+
 - Implement the method `GenerateIdenticalSlice`.
+```go
+generated := utils.GenerateIdenticalSlice(3, 28)
+fmt.Println(generated) // [28 28 28]
+```
+
 - Implement the method `GenerateRandomSlice`.
+```go
+generated := utils.GenerateRandomSlice(4, 16)
+fmt.Println(generated) // [7 1 12 6]
+```
+
+- Bonus: implement the method `GenerateUserSlice`.
+```console
+$ go run main.go
+Enter the elements separated by space: 10 20 30 40
+User-defined slice: [10 20 30 40]
+$
+```
 
 ---
 
@@ -1213,6 +1238,29 @@ layout: full
 - Navigate to the `utils` folder and edit the `sorts.go` file.
 - Implement the method `IsSorted`.
 
+```go
+slice1 := []int{0, 2, 4, 5, 6, 9}
+fmt.Println(utils.IsSorted(slice1)) // true
+
+slice2 := []int{1, 1, 1}
+fmt.Println(utils.IsSorted(slice2)) // true
+
+slice3 := []int{5, 1, 2, 3, 0}
+fmt.Println(utils.IsSorted(slice3)) // false
+```
+
+---
+
+```yaml
+layout: full
+```
+
+# Selection sort
+
+- The algorithm repeatedly selects the smallest element from the unsorted portion of the list.
+- After selecting the smallest element, it swaps it with the first element of the unsorted portion.
+- This process is repeated, each time moving the boundary between the sorted and unsorted portions of the list.
+
 ---
 
 ```yaml
@@ -1223,3 +1271,59 @@ layout: full
 
 - Navigate to the `utils` folder and edit the `sorts.go` file.
 - Implement the method `SelectionSort`.
+
+---
+
+```yaml
+layout: full
+```
+
+# Bubble sort
+
+- It is called _bubble_ because elements gradually move up (like bubbles rising to the surface). 
+- The algorithm repeatedly compares adjacent elements.
+- If two adjacent elements are in the wrong order, they are swapped.
+
+---
+
+```yaml
+layout: full
+```
+
+# 📝 Exercise : sort a slice using bubble sort
+
+- Navigate to the `utils` folder and edit the `sorts.go` file.
+- Implement the method `BubbleSort`.
+
+---
+
+```yaml
+layout: section
+index: 9
+```
+
+## Testing
+
+
+---
+
+```yaml
+layout: full
+```
+
+# 📝 Exercise : create test functions
+
+- Navigate to the `lab` folder and edit the `main_test.go` file.
+- Import the `lab/utils` package and test outputs from `GenerateSequentialSlice`, `GenerateIdenticalSlice`, `GenerateRandomSlice` and `IsSorted` functions.
+- Run the tests using `go test` command.
+
+```console
+$ cd lab
+$ go test
+--- FAIL: TestFunction (0.00s)
+    main_test.go:8: Empty test
+FAIL
+exit status 1
+FAIL    lab     0.002s
+$
+```

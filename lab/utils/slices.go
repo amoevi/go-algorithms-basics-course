@@ -1,5 +1,11 @@
 package utils
 
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
 // TODO
 // Create the function GenerateSequentialSlice that takes an integer n
 // and returns a slice containing numbers from 0 to n-1
@@ -27,7 +33,22 @@ func GenerateRandomSlice(n int, max int) []int {
 	return slice
 }
 
-// TODO
-// Create the function ReverseSlice that takes a slice of integers and reverses the elements.
-func ReverseSlice(arr []int) {
+// BONUS TODO
+// Create the function GenerateUserSlice that asks the user
+// to input all the elements in a single line, separated by spaces.
+//
+// HINTS:
+// You may need to import the following packages:
+// - bufio (for reading user input as a full line)
+// - fmt (for printing output and handling input)
+// - strings (for splitting the input string into individual values)
+// - strconv (for converting strings to integers)
+func GenerateUserSlice() []int {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter some text: ")
+	input, _ := reader.ReadString('\n')
+	fmt.Println("You entered:", input)
+
+	var slice []int
+	return slice
 }
