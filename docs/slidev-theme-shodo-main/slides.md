@@ -1029,7 +1029,7 @@ func main() {
 
 ```yaml
 layout: section
-index: 7
+index: 8
 ```
 
 ## Standard library
@@ -1166,7 +1166,7 @@ layout: full
 
 ```yaml
 layout: section
-index: 8
+index: 9
 ```
 
 ## Algorithms
@@ -1319,6 +1319,79 @@ layout: full
 layout: full
 ```
 
+# Merge sort
+
+```
+Function MergeSort(array)
+    IF length(array) <= 1 THEN
+        return  // Base case: array has 1 or 0 elements, already sorted
+    END IF
+
+    middle <- length(array) / 2
+    left <- array[0...middle]
+    right <- array[middle...end]
+
+    MergeSort(left)
+    MergeSort(right)
+
+    merge(array, left, right)  // Merge the sorted halves back into the original array
+END Function
+```
+
+---
+
+```yaml
+layout: two-cols-header
+```
+
+# Merge sort
+
+::left::
+
+```
+Function merge(array, left, right)
+	i, j, k <- 0
+
+	// Compare elements from both arrays 
+	// and merge them in sorted order
+	WHILE i < length(left) AND j < length(right) DO
+		IF left[i] < right[j] THEN
+			array[k] <- left[i]
+			i <- i + 1
+		ELSE
+			array[k] <- right[j]
+			j <- j + 1
+		END IF
+		k <- k + 1
+	END WHILE
+```
+
+::right::
+
+```
+	// Add remaining elements from the left array
+	WHILE i < length(left) DO
+		array[k] <- left[i]
+        i <- i + 1
+		k <- k + 1
+	END WHILE
+
+	// Add remaining elements from the right array
+	WHILE j < length(right) DO
+		array[k] <- right[j]
+		j <- j + 1
+		k <- k + 1
+	END WHILE
+END Function
+```
+
+
+---
+
+```yaml
+layout: full
+```
+
 # 📝 Exercise : sort a slice using merge sort
 
 - Navigate to the `utils` folder and edit the `sorts.go` file.
@@ -1328,11 +1401,10 @@ layout: full
 
 ```yaml
 layout: section
-index: 9
+index: 10
 ```
 
 ## Testing
-
 
 ---
 
