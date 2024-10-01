@@ -87,26 +87,44 @@ layout: three-cols-header
 ### A little bit of history
 
 ::left::
-<v-click>
 2007
 
 Project began at Google.
-</v-click>
 
 
 ::center::
-<v-click>
 2009
 
 Publicly announced.
-</v-click>
 
 ::right::
-<v-click>
 2012
 
 Version 1.0 released.
-</v-click>
+
+---
+
+```yaml
+layout: three-cols-header
+```
+
+### Why Go?
+
+::left::
+**Simplicity**
+
+Clean and straightforward syntax, easy to learn.
+
+
+::center::
+**Performance**
+
+Compiled language with efficient execution.
+
+::right::
+**Scalability**
+
+Ideal for building large-scale, distributed systems.
 
 
 ---
@@ -260,7 +278,7 @@ Addition (`+`), Subtraction (`-`), Multiplication (`*`), Division (`/`), Modulus
 
 ###  Comparison operations
 
-Equal (`==`), Less than (`<`), Greater than (`>`), …
+Equal (`==`), Not equal (`!=`), Less than (`<`), Greater than (`>`), Less than or equal (`<=`), Greater than or equal (`>=`)
 
 ### String operations
 
@@ -657,7 +675,6 @@ sli2[0] = "ruby"
 fmt.Println(sli2) // ["ruby", "java", "c++"]
 fmt.Println(sli) // ["perl", "golang", "ruby", "java", "c++"]
 fmt.Println(sli3) // ["perl", "golang", "ruby"]
-
 ```
 
 ---
@@ -815,24 +832,26 @@ index: 6
 layout: full
 ```
 # Functions
-- A function can take zero or more arguments.
-- A function can `return` zero or more values. 
+- A function is a block of code that can be reused and organized to perform tasks.
 
-```go {all|1-3|5-7|9-11|13-15|all}
-func zeroArgumentsZeroValues() {
-	fmt.Println("Hello from empty function")
+```go
+func fahrenheitToCelsius(fahrenheit float64) float64 {
+	return (fahrenheit - 32) * 5 / 9
 }
 
-func oneArgumentZeroValues(message string) {
-	fmt.Println("This is what the function got:", message)
+func calculateArea(width, height float64) float64 {
+	return width * height
 }
 
-func oneArgumentOneValue(name string) string {
-	return "Hello " + name
-}
-
-func manyArgumentsManyValues(message string, timestamp int, ip string) (string, int) {
-	return ip + " said " + message, timestamp / 1000
+func greetBasedOnTime(hour int) string {
+	switch {
+	case hour < 12:
+		return "Good morning"
+	case hour < 18:
+		return "Good afternoon"
+	default:
+		return "Good evening"
+	}
 }
 ```
 
@@ -843,13 +862,17 @@ layout: full
 ```
 #  Declaring and calling a function
 
-```go {all|1-4|6-8|all}
-// Declare a function with parameters and a return type.
+- Functions are defined with a **signature** that specifies what kind of data the function accepts and what it returns.
+
+```go {all|1|all}
 func add(a int, b int) int {
 	return a + b
 }
+```
 
-// Call the function by passing arguments.
+- To execute a function, you need to call it by passing arguments that match the parameters defined in the signature.
+
+```go {all|1|all}
 result := add(1, 5)
 fmt.Println("Result:", result)
 ```
@@ -859,24 +882,49 @@ fmt.Println("Result:", result)
 ```yaml
 layout: full
 ```
-#  Return zero or more values
 
-```go {all|1-5|7-12|14-19|all}
-// Functions can perform tasks without returning anything.
+# Parameters
+- Functions can accept zero, one, or multiple parameters.
+
+```go {all|1-4|6-10|12-16|all}
 func sayHi() {
 	fmt.Println("Hello, World!")
 }
 sayHi()
 
-// Functions can return a single value.
 func square(n int) int {
 	return n * n
 }
 result := square(5)
 fmt.Println("Square of 5:", result)
 
-// Go allows functions to return multiple values.
-func divide(a, b int) (int, int) {
+func checkStringLength(s string, length int) bool {
+	return len(s) == length
+}
+output := checkStringLength("hello", 5)
+fmt.Println("Does it match?", output)
+```
+
+---
+
+```yaml
+layout: full
+```
+# Return values
+- Functions may return zero, one, or multiple values.
+```go {all|1-4|6-10|12-16|all}
+func greet(name string) {
+	fmt.Println("Hello", name)
+}
+greet("Alex")
+
+func isEven(n int) bool {
+	return n%2 == 0
+}
+result := isEven(5)
+fmt.Println("Is 101 event?", result)
+
+func divide(a int, b int) (int, int) {
 	return a / b, a % b
 }
 quotient, remainder := divide(9, 4)
@@ -895,11 +943,11 @@ layout: full
 
 ```go {all|2-5|6-7|all}
 func factorial(n int) int {
-    // Base case: when n is 0 or 1
+    // Base case: when n is 0 or 1.
     if n == 0 || n == 1 {
         return 1
     }
-    // Recursive case: n * factorial(n-1)
+    // Recursive case: n * factorial(n-1).
     return n * factorial(n-1)
 }
 
@@ -1400,11 +1448,17 @@ layout: full
 ---
 
 ```yaml
-layout: section
-index: 10
+layout: full
 ```
 
-## Testing
+# Linear search
+
+- A simple search algorithm that checks each element in the array one by one.
+- Algorithm steps
+	- Start at the first element of the array.
+	- Compare each element with the target value.
+	- Continue until the target is found or all elements are checked.
+- Works with unsorted arrays or arrays where sorting is not important.
 
 ---
 
@@ -1412,19 +1466,31 @@ index: 10
 layout: full
 ```
 
-# 📝 Exercise : create test functions
+# Binary search
 
-- Navigate to the `lab` folder and edit the `main_test.go` file.
-- Import the `lab/utils` package and test outputs from `GenerateSequentialSlice`, `GenerateIdenticalSlice`, `GenerateRandomSlice` and `IsSorted` functions.
-- Run the tests using `go test` command.
+- A faster search algorithm that repeatedly divides a **sorted** slice in half to find the target.
+- Algorithm steps
+	- Check the middle element of the slice.
+	- If the middle element is the target, return its index.
+	- If the target is smaller, focus on the left half. If larger, focus on the right half.
+	- Repeat this process until the target is found or the sub-slice size becomes 0.
 
-```console
-$ cd lab
-$ go test
---- FAIL: TestFunction (0.00s)
-    main_test.go:8: Empty test
-FAIL
-exit status 1
-FAIL    lab     0.002s
-$
+---
+
+```yaml
+layout: full
 ```
+
+# 📝 Exercise : search data in slices
+
+- Navigate to the `utils` folder and edit the `search.go` file.
+- Implement the method `LinearSearch`.
+- Implement the method `BinarySearch`.
+
+---
+
+```yaml
+layout: end
+```
+
+**Any questions?**
