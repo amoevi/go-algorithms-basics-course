@@ -915,6 +915,7 @@ layout: full
 ```
 # Return values
 - Functions may return zero, one, or multiple values.
+- Use `_` to ignore unused return values.
 ```go {all|1-4|6-10|12-16|all}
 func greet(name string) {
 	fmt.Println("Hello", name)
@@ -931,7 +932,7 @@ func divide(a int, b int) (int, int) {
 	return a / b, a % b
 }
 quotient, remainder := divide(9, 4)
-fmt.Println("Quotient:", quotient, "Remainder:", remainder)
+_, parity := divide(9, 4)
 ```
 
 ---
