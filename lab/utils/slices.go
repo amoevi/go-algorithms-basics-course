@@ -3,7 +3,9 @@ package utils
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 )
 
 // TODO
@@ -25,11 +27,15 @@ func GenerateIdenticalSlice(n int, value int) []int {
 // TODO
 // Create the function GenerateRandomSlice that takes an integer n and an integer max
 // and returns a slice of n random integers.
-//
-// Note: In "math/rand/v2" package, rand.IntN(max) generates a random number between 0 and max-1.
-// For example, rand.IntN(100) will generate a number between 0 and 99.
 func GenerateRandomSlice(n int, max int) []int {
 	var slice []int
+
+	// The random number generator is initialized with the current time as the seed
+	generator := rand.New(rand.NewSource(time.Now().UnixNano()))
+
+	// Example of generating and printing a random number between 0 and max-1
+	fmt.Println("Here's three random numbers:", generator.Intn(max), generator.Intn(max), generator.Intn(max))
+
 	return slice
 }
 

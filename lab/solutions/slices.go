@@ -38,7 +38,9 @@ func GenerateUserSlice() []int {
 
 	// Ask the user to input all the elements separated by spaces
 	fmt.Print("Enter the elements separated by space: ")
-	input, _ := reader.ReadString('\n') // Read the entire line, including the newline
+
+	// Read the entire line, including the newline
+	input, _ := reader.ReadString('\n')
 
 	// Remove any trailing newline or spaces
 	input = strings.TrimSpace(input)

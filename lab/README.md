@@ -6,7 +6,3 @@
 ### Running the application
 
 To launch the program, use `go run main.go`.
-
-### Testing your functions
-
-To launch the tests, use `go test`.
