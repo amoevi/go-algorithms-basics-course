@@ -697,7 +697,7 @@ fmt.Println(len(sli))
 sli = append(sli, 1.41421)
 
 // copy() copies elements from one slice to another
-dst := make([]string, len(sli))
+dst := make([]int, len(sli))
 copy(dst, sli)
 
 // for statements to iterate over a slice
