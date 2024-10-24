@@ -3,10 +3,11 @@ package solutions
 import (
 	"bufio"
 	"fmt"
-	"math/rand/v2"
+	"math/rand"
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func GenerateSequentialSlice(n int) []int {
@@ -27,8 +28,9 @@ func GenerateIdenticalSlice(n int, value int) []int {
 
 func GenerateRandomSlice(n int, max int) []int {
 	slice := make([]int, n)
+	generator := rand.New(rand.NewSource(time.Now().UnixNano()))
 	for i := 0; i < n; i++ {
-		slice[i] = rand.IntN(max)
+		slice[i] = generator.Intn(max)
 	}
 	return slice
 }
